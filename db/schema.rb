@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129210254) do
+ActiveRecord::Schema.define(version: 20151130212157) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(version: 20151129210254) do
     t.decimal  "price",                     precision: 8, scale: 2
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name",            limit: 255
+    t.string   "password_digest", limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_foreign_key "line_items", "carts"
